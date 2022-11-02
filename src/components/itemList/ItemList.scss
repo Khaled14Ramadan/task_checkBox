@@ -1,0 +1,43 @@
+
+.carItem {
+  display: flex;
+   align-items: center ;
+  
+}
+
+[type="checkbox"] {
+    // --checkmark-svg: url('https://api.iconify.design/feather:check.svg');
+    --checkmark-svg: url('./check-bold.svg');
+    
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    cursor: pointer;
+    appearance: none; // disable default browser styles
+    color: currentColor; // use same color as surrounding text
+    border: 1px solid currentColor;  
+    border-radius: 3px;
+  
+    &:checked {
+      border: 2px solid #673ab7;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: 1.5rem;
+      background-color: #673ab7;
+    }
+  }
+  
+    &:checked::after {
+      mask-image: var(--checkmark-svg);
+    }
+  }
+  
+  label {
+    cursor: pointer;
+  }
+ 
+  

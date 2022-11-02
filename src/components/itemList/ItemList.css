@@ -1,0 +1,41 @@
+.carItem {
+  display: flex;
+  align-items: center;
+}
+
+[type=checkbox] {
+  --checkmark-svg: url("./check-bold.svg");
+  height: 1.5rem;
+  width: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: currentColor;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+[type=checkbox]:checked {
+  border: 2px solid #673ab7;
+}
+[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: 1.5rem;
+          mask-size: 1.5rem;
+  background-color: #673ab7;
+}
+[type=checkbox]:checked::after {
+  -webkit-mask-image: var(--checkmark-svg);
+          mask-image: var(--checkmark-svg);
+}
+
+label {
+  cursor: pointer;
+}/*# sourceMappingURL=ItemList.css.map */
