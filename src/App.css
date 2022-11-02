@@ -62,6 +62,12 @@
   margin-left: 1rem;
 }
 
+@media (max-width:768px){
+  .body , .head{
+    width: 80%;
+  }
+}
+
 .App-link {
   color: #61dafb;
 }

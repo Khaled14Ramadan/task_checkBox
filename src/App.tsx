@@ -70,6 +70,7 @@ function App() {
   //statusBtn to disappear or apper apply changes button 
   const [statusBtn ,setStatusBtn] = useState(false);
 
+  //this Method to sort item's checked and push frist in array and sort item's unchecked and push after.
   const  orderList = (list:CarModel[])=>{
     const checked = list.filter((item)=> item.checked).sort((a,b)=> a.id-b.id);
     const unchecked = list.filter((item)=> !item.checked).sort((a,b)=> a.id-b.id);
@@ -77,10 +78,11 @@ function App() {
   }
 
   useEffect(() => {
-    resetFutureCars();
+    resetFutureCars();// frist time the web opened
   }, [])
   
 
+  // this to reset web to defualt
   const resetFutureCars = ()=>{
     const deepCopy=JSON.parse(JSON.stringify(futureCars))
     orderList(deepCopy);
@@ -88,13 +90,15 @@ function App() {
     setStatusBtn(false);
   }
 
+  //to handel event on apply changes button
   const applyChanges = ()=>{
     orderList(checkedList);
   }
 
+  //to handel event on checkBox 
   const handleCheck = (car:CarModel,e:boolean)=> {
-    console.log(e);
-    setStatusBtn(true);
+    setStatusBtn(true);// to show apply changes button
+    
     const deepCopy= JSON.parse(JSON.stringify(checkedList));
     const change = deepCopy.map((item:CarModel)=>{
       item.checked= item.id===car.id ? e : item.checked;
